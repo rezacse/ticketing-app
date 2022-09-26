@@ -20,3 +20,11 @@ build:
             dest: .
 
 #34.100.174.16
+
+
+
+#Create Secret
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
+
+
+
