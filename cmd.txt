@@ -1,3 +1,32 @@
+FROM node:alpine
+
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+
+CMD ["npm", "run", "dev"]
+
+docker build -t rezacse08/posts .
+docker push rezacse08/posts
+
+
+kubectl apply -f posts-depl.yaml
+kubectl get deployments
+kubectl delete deployments 'name'
+kubectl get pods
+kubectl logs posts-depl-856855f6cb-f6k88
+kubectl rollout restart deployment posts-depl
+kubectl get services
+kubectl describe pod posts-srv
+
+kubectl get deployments
+kubectl describe service posts-srv
+
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/cloud/deploy.yaml
+
+
 ts-node-dev --poll src/index.ts
 
 apiVersion: skaffold/v2alpha3
