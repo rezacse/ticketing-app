@@ -6,8 +6,7 @@ import cookieSession from "cookie-session";
 import { signupRouter } from "./routes/signup";
 import { signinRouter } from "./routes/signin";
 import { currentUserRouter } from "./routes/current-user";
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors/not-found-error";
+import { errorHandler, NotFoundError } from "@rezatickets/common";
 import { signOutRouter } from "./routes/signout";
 
 const app = express();
